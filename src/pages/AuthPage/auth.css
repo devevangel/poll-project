@@ -1,0 +1,53 @@
+.auth-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-actions-container {
+  width: 400px;
+  border: 1px solid rgb(43, 42, 42);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  align-items: center;
+}
+
+.auth-actions-container-in {
+  height: 300px;
+}
+
+.auth-actions-container-up {
+  height: 400px;
+}
+
+.auth-action-title {
+  text-align: center;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 10px;
+}
+
+.submit-button {
+  padding: 10px;
+  width: 100px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.link-to-signup {
+  color: rgb(32, 32, 218);
+}
+
+.link-to-signup:hover {
+  cursor: pointer;
+  color: rgb(37, 37, 190);
+  text-decoration: underline;
+}
