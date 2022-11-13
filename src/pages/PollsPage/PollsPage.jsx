@@ -1,10 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import PollItem from "../../components/PollItem";
+
 import "./polls.css";
 
 const Polls = () => {
   const navigate = useNavigate();
+
+  const handleVote = () => {
+    console.log("vote");
+  };
 
   return (
     <section className="polls-section">
@@ -12,34 +18,30 @@ const Polls = () => {
         Logout
       </button>
       <div className="polls-containers">
-        <div className="poll-item">
-          <div className="poll-item-border title">A</div>
-          <div className="poll-item-votes votes-text">
-            <span className="votes-number">50</span> Votes
-          </div>
-          <button className="poll-vote-button">Vote</button>
-        </div>
-        <div className="poll-item">
-          <div className="poll-item-border title">B</div>
-          <div className="poll-item-votes votes-text">
-            <span className="votes-number">50</span> Votes
-          </div>
-          <button className="poll-vote-button">Vote</button>
-        </div>
-        <div className="poll-item">
-          <div className="poll-item-border title">C</div>
-          <div className="poll-item-votes votes-text">
-            <span className="votes-number">50</span> Votes
-          </div>
-          <button className="poll-vote-button">Vote</button>
-        </div>
-        <div className="poll-item">
-          <div className="poll-item-border title">D</div>
-          <div className="poll-item-votes votes-text">
-            <span className="votes-number">50</span> Votes
-          </div>
-          <button className="poll-vote-button">Vote</button>
-        </div>
+        <PollItem
+          id={1}
+          name={"Option 1"}
+          numOfVotes={5000}
+          handleVote={handleVote}
+        />
+        <PollItem
+          id={2}
+          name={"Option 2"}
+          numOfVotes={1000}
+          handleVote={handleVote}
+        />
+        <PollItem
+          id={3}
+          name={"Option 3"}
+          numOfVotes={500}
+          handleVote={handleVote}
+        />
+        <PollItem
+          id={4}
+          name={"Option 4"}
+          numOfVotes={8000}
+          handleVote={handleVote}
+        />
       </div>
     </section>
   );
