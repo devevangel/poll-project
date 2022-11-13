@@ -23,6 +23,7 @@ const Signin = ({ setShowAuth, setUserData }) => {
       .post(`https://polls-server.onrender.com/users/signin`, userData, {
         headers: {
           "content-type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       })
       .then((response) => {

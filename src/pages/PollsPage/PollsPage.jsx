@@ -21,6 +21,7 @@ const Polls = ({ setUserData, userData }) => {
       .get(`https://polls-server.onrender.com/polls`, {
         headers: {
           "content-type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: `Bearer ${userData.token}`,
         },
       })
@@ -58,6 +59,7 @@ const Polls = ({ setUserData, userData }) => {
       .post(`https://polls-server.onrender.com/polls`, voteData, {
         headers: {
           "content-type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: `Bearer ${userData.token}`,
         },
       })
