@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import "./auth.css";
 
-const SignUp = ({ setShowAuth }) => {
+const SignUp = ({ setShowAuth, setUserData }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,13 +31,19 @@ const SignUp = ({ setShowAuth }) => {
         },
       })
       .then((response) => {
-        setLoading(false);
         const userData = response.data;
-        console.log(userData);
+        setUserData({
+          token: userData.token,
+          firstName: userData.user.firstName,
+          lastName: userData.user.lastName,
+          id: userData._id,
+        });
         localStorage.setItem("token", userData.token);
         localStorage.setItem("firstName", userData.user.firstName);
         localStorage.setItem("lastName", userData.user.lastName);
         localStorage.setItem("id", userData.user._id);
+        setLoading(false);
+        navigate("/polls");
       })
       .catch((error) => {
         setLoading(false);

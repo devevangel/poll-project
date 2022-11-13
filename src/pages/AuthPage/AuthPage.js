@@ -5,15 +5,15 @@ import Signin from "./Signin";
 
 import "./auth.css";
 
-const AuthPage = () => {
+const AuthPage = ({ setUserData }) => {
   const [showAuth, setShowAuth] = useState("in");
 
   return (
     <div className="auth-page">
       {showAuth === "in" ? (
-        <Signin setShowAuth={setShowAuth} />
+        <Signin setShowAuth={setShowAuth} setUserData={setUserData} />
       ) : (
-        <SignUp setShowAuth={setShowAuth} />
+        <SignUp setShowAuth={setShowAuth} setUserData={setUserData} />
       )}
     </div>
   );
